@@ -13,5 +13,5 @@ def!{
 
 ``` 
 I am planning on making the syntax better and adding generics and other features  
-I am also planning on using proc macros to make it have '-> ()' implisitly
+I am also planning on using proc macros to make it have '-> ()' implicitly
 
