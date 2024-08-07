@@ -1,36 +1,40 @@
-# function overloading
-this is a rust library that adds function overloading through rust macros  
-it only supports normal function syntax(no async, generics, lifetimes, ect...)  
+# Function Overloading
+
+This is a Rust library that adds function overloading through Rust macros. It supports normal function syntax but does not currently support advanced features like async, generics, or lifetimes.
+
+## Usage
+
+Define overloaded functions using the `def!` macro:
 
 ```rust
-
-def!{
-    foo, //the name of the function
-    fn (a: u32, b: u32) -> () { // you have to explicitly put the return value
+def! {
+    foo, // The name of the function
+    fn (a: u32, b: u32) -> () { // You must explicitly specify the return type
         println!("{}", a + b);
-    }, //the , is not optional
+    }, // The comma is not optional
     fn (s: &str) -> () {
         println!("{}", s);
     },
-    fn (s: char) -> String { //you can also add other return values
+    fn (s: char) -> String { // You can also have different return types
        return s.to_string(); 
-    } //you can add a ',' at the end, but you dont have to
+    } // You can add a comma at the end, but it's not required
 }
-
-``` 
-
-you can use the function by calling it as a macro
-
-```rust
-
-    fn main() {
-        foo!(1, 2); // 3
-        foo!("bar"); // bar
-        let bar: String = foo!('a');
-    }
-
 ```
 
-I am planning on making the syntax better and adding generics and other features  
-I am also planning on using proc macros to make it have '-> ()' implicitly
+You can use the overloaded function by calling it as a macro:
+
+```rust
+fn main() {
+    foo!(1, 2); // Outputs: 3
+    foo!("bar"); // Outputs: bar
+    let bar: String = foo!('a');
+}
+```
+
+## Future Plans
+
+- **Improved Syntax**: Making the syntax more user-friendly.
+- **Additional Features**: Adding support for generics, lifetimes, async functions, etc.
+- **Proc Macros**: Using proc macros to make `-> ()` implicit.
+- **Add to crates.io**
 
