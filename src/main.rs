@@ -1,7 +1,7 @@
 use function_overloading::def;
 
 def! {
-    test,
+    foo,
     fn (a: u32, b: u32) -> u32 {
         return a + b;
     },
@@ -11,5 +11,5 @@ def! {
 }
 
 fn main() {
-    println!("{}", test!("1", "2"));
+    println!("{}", foo!("1", "2"));
 }
