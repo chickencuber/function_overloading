@@ -16,7 +16,7 @@ def! {
         println!("{}", s);
     },
     fn (s: char) -> String { // You can also have different return types
-       return s.to_string(); 
+       return s.to_string();
     } // You can add a comma at the end, but it's not required
 }
 ```
@@ -33,9 +33,8 @@ fn main() {
 
 ## Future Plans
 
-- [] **Improved Syntax**: Making the syntax more like defining functions.
-- [] **Additional Features**: Adding support for generics, lifetimes, async functions, etc.
+- [ ] **Improved Syntax**: Making the syntax more like defining functions.
+- [ ] **Additional Features**: Adding support for generics, lifetimes, async functions, etc.
 - [x] **Proc Macros**: Using proc macros to make `-> ()` implicit.
     - turns out I didn't need a proc macro for this
-- [] **Add to crates.io**
-
+- [ ] **Add to crates.io**
