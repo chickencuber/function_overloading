@@ -1,8 +1,10 @@
+pub use paste::paste;
+
 #[macro_export]
 macro_rules! def {
-    ($name:ident, $(fn ($($arg:ident : $type:ty),* $(,)?) -> $ret:ty $body:block),+ $(,)?) => {
-        paste::paste! {
-            function_overloading::helper! {
+    ($name:ident, $(fn ($($arg:ident : $type:ty),* $(,)?) $(-> $ret:ty)? $body:block),+ $(,)?) => {
+        $crate::paste! {
+            $crate::helper! {
                 ($d:tt) => {
                     macro_rules! $name {
                         ($d($d args:expr),*) => {
@@ -17,9 +19,9 @@ macro_rules! def {
             }
             $(  
                 impl [<Fn $name:camel>] for ($($type),*) {
-                    type [<Fn $name:camel Return>] = $ret;
+                    type [<Fn $name:camel Return>] = $crate::helper_type_defualt!($($ret)?, ());
                     fn [<fn_ $name>](&self) -> Self::[<Fn $name:camel Return>] {
-                        let ($($arg),*) = *self;
+                        let ($($arg),*) = self;
                         $body
                     }
                 }
@@ -34,5 +36,15 @@ macro_rules! helper {
         macro_rules! __with_dollar_sign { $($body)* }
         __with_dollar_sign!($);
     }
+}
+
+#[macro_export]
+macro_rules! helper_type_defualt {
+    ($type:ty, $default:ty) => {
+       $type 
+    };
+    (,$type:ty) => {
+        $type
+    };
 }
 

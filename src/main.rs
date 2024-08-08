@@ -7,9 +7,14 @@ def! {
     },
     fn (a: &str, b: &str) -> usize {
         return a.len() + b.len();
-    }
+    },
+    fn (a: String) {
+        println!("{}", a);
+    },
 }
 
 fn main() {
     println!("{}", foo!("1", "2"));
+    println!("{}", foo!(1, 2));
+    foo!(String::from("hello"));
 }

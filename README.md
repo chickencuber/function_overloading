@@ -9,10 +9,10 @@ Define overloaded functions using the `def!` macro:
 ```rust
 def! {
     foo, // The name of the function
-    fn (a: u32, b: u32) -> () { // You must explicitly specify the return type
+    fn (a: u32, b: u32) {
         println!("{}", a + b);
     }, // The comma is not optional
-    fn (s: &str) -> () {
+    fn (s: &str) -> () { // you dont need the return type explicitly
         println!("{}", s);
     },
     fn (s: char) -> String { // You can also have different return types
@@ -33,8 +33,9 @@ fn main() {
 
 ## Future Plans
 
-- **Improved Syntax**: Making the syntax more user-friendly.
-- **Additional Features**: Adding support for generics, lifetimes, async functions, etc.
-- **Proc Macros**: Using proc macros to make `-> ()` implicit.
-- **Add to crates.io**
+- [] **Improved Syntax**: Making the syntax more like defining functions.
+- [] **Additional Features**: Adding support for generics, lifetimes, async functions, etc.
+- [x] **Proc Macros**: Using proc macros to make `-> ()` implicit.
+    - turns out I didn't need a proc macro for this
+- [] **Add to crates.io**
 
