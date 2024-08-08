@@ -3,6 +3,8 @@ name = "function_overloading"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
+authors = ["chickencuber"]
+repository = "https://github.com/chickencuber/function_overloading"
 
 [dependencies]
 paste = "1.0.15"
