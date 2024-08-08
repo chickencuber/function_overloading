@@ -37,4 +37,4 @@ fn main() {
 - [ ] **Additional Features**: Adding support for generics, lifetimes, async functions, etc.
 - [x] **Proc Macros**: Using proc macros to make `-> ()` implicit.
     - turns out I didn't need a proc macro for this
-- [ ] **Add to crates.io**
+- [x] **Add to crates.io**
