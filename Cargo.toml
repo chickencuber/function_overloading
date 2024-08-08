@@ -5,6 +5,7 @@ edition = "2021"
 license = "MIT"
 authors = ["chickencuber"]
 repository = "https://github.com/chickencuber/function_overloading"
+description = "a crate that adds function overloading"
 
 [dependencies]
 paste = "1.0.15"
