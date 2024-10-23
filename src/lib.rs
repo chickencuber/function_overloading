@@ -19,7 +19,7 @@ macro_rules! def {
             }
             $(  
                 impl [<Fn $name:camel>] for ($($type),*) {
-                    type [<Fn $name:camel Return>] = $crate::helper_type_defualt!($($ret)?, ());
+                    type [<Fn $name:camel Return>] = $crate::helper_type_default!($($ret)?, ());
                     fn [<fn_ $name>](&self) -> Self::[<Fn $name:camel Return>] {
                         let ($($arg),*) = self;
                         $body
@@ -39,7 +39,7 @@ macro_rules! helper {
 }
 
 #[macro_export]
-macro_rules! helper_type_defualt {
+macro_rules! helper_type_default {
     ($type:ty, $default:ty) => {
        $type 
     };
