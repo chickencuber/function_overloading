@@ -2,7 +2,7 @@ pub use paste::paste;
 
 #[macro_export]
 macro_rules! def {
-    ($name:ident, $(fn ($($arg:ident : $type:ty),* $(,)?) $(-> $ret:ty)? $body:block),+ $(,)?) => {
+    ($name:ident; $(fn ($($arg:ident : $type:ty),* $(,)?) $(-> $ret:ty)? $body:block);+ $(;)?) => {
         $crate::paste! {
             $crate::helper! {
                 ($d:tt) => {
