@@ -21,13 +21,13 @@ def! {
 }
 ```
 
-You can use the overloaded function by calling it as a macro:
+You can use the overloaded function by calling it as a function with the args wrapped in a tuple:
 
 ```rust
 fn main() {
-    foo!(1, 2); // Outputs: 3
-    foo!("bar"); // Outputs: bar
-    let bar: String = foo!('a');
+    foo((1, 2)); // Outputs: 3
+    foo(("bar")); // Outputs: bar
+    let bar: String = foo(('a'));
 }
 ```
 
